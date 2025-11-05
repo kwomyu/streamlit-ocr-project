@@ -5,7 +5,16 @@ import pytesseract
 import cv2
 import numpy as np
 
-# --- THIS IS FOR WINDOWS USERS ---
+# --- TESSERACT PATH CONFIGURATION ---
+import platform
+
+# 1. FOR STREAMLIT CLOUD (Linux/Standard Install)
+# This is the common path on Linux and Cloud environments.
+if platform.system() != "Windows":
+    pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
+# 2. FOR LOCAL WINDOWS INSTALLATION
+# Only uncomment this line if you are running locally on Windows and need to specify the path
 # You MUST tell pytesseract where you installed Tesseract
 # Uncomment this line and change the path if you're on Windows
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
